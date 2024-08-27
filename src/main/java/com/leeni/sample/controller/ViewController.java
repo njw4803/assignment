@@ -11,6 +11,6 @@ public class ViewController {
     @GetMapping("/")
     public String main() {
         log.info("/ url 호출 -> login.html 이동");
-        return "/login";
+        return "login";
     }
 }
