@@ -16,6 +16,7 @@ $(function(){
 
 function loginCheck() {
 
+    login(); return;
     var userId = $('#userId').val();
     var password = $('#password').val();
 
