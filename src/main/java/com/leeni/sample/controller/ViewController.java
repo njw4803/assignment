@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ViewController {
 
     @GetMapping("/")
-    public String main() {
+    public String loginPage() {
         log.info("/ url 호출 -> login.html 이동");
         return "login";
+    }
+
+    @GetMapping("/userListPage")
+    public String userListPage() {
+        log.info("/ url 호출 -> user-list.html 이동");
+        return "user/user-list";
     }
 }

@@ -1,36 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>로그인</title>
+    <title>과정형 평가 1번</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}">
-    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script th:src="@{/js/login.js}"></script>
+    <script th:replace="~{fragment/script :: scriptFragment}"></script>
 </head>
 <body>
 <section>
-    <div id="loading" class="modalcss">
-        <div class="modal-contentcss">
-            <div id="circularG">
-                <div id="circularG_1" class="circularG"></div>
-                <div id="circularG_2" class="circularG"></div>
-                <div id="circularG_3" class="circularG"></div>
-                <div id="circularG_4" class="circularG"></div>
-                <div id="circularG_5" class="circularG"></div>
-                <div id="circularG_6" class="circularG"></div>
-                <div id="circularG_7" class="circularG"></div>
-                <div id="circularG_8" class="circularG"></div>
-            </div>
-        </div>
-    </div>
-    <div th:replace="~{fragment/header :: headerFragment}"></div>
+    <div th:replace="~{fragment/progress-bar :: progressBarFragment}"></div>
+    <div style="border: 2px solid #5d7999d4;;
+        text-align: center;
+        margin-bottom: 5%;">
+        <h3>과정형평가 1번 문제</h3>
+        <h3>노지원</h3></div>
     <div class="login-form">
-        <input type="text" id="member_id" name="member_id" class="text-field" placeholder="ID">
-        <input type="password" id="pwd" name="pwd" class="text-field" placeholder="Password">
+        <input type="text" id="userId" name="userId" class="text-field" placeholder="ID">
+        <input type="password" id="password" name="password" class="text-field" placeholder="Password">
         <br><br>
         <input style="cursor: pointer;" id="loginBtn" type="button" value="Login" class="submit-btn" onclick="loginCheck()">
     </div>

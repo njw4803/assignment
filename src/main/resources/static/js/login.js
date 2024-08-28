@@ -1,14 +1,14 @@
 $(function(){
-    $("#member_id").keydown(function (key) {
+    $("#userId").keydown(function (key) {
         if (key.keyCode == 13) {
-            $("#pwd").focus();
+            $("#password").focus();
             return false;
         }
     });
 
-    $("#pwd").keydown(function (key) {
+    $("#password").keydown(function (key) {
         if (key.keyCode == 13) {
-            loginChk();
+            loginCheck();
             return false;
         }
     });
@@ -16,22 +16,22 @@ $(function(){
 
 function loginCheck() {
 
-    var member_id = $('#member_id').val();
-    var pwd = $('#pwd').val();
+    var userId = $('#userId').val();
+    var password = $('#password').val();
 
-    if (member_id == '') {
+    if (userId == '') {
         var type = 'warning';
         var title_msg = "아이디를 입력해주세요.";
         var msg;
-        var id = 'member_id';
+        var id = 'userId';
         sweetAlert(type, title_msg, msg, id); //common.js에 있음
         return false;
     }
-    if (pwd == '') {
+    if (password == '') {
         var type = 'warning';
         var title_msg = "비밀번호를 입력해주세요.";
         var msg;
-        var id = 'pwd';
+        var id = 'password';
         sweetAlert(type, title_msg, msg, id); //common.js에 있음
         return false;
     }
@@ -41,12 +41,14 @@ function loginCheck() {
 
 function login() {
 
-    $('#loading').show();
+    location.href = '/userListPage';
     return;
+    $('#loading').show();
+
     $.ajax({
         type: "POST",
         data : $("#formData").serialize(),
-        url: 'login',
+        url: '/login',
         dataType: "json",
         error: function(result){
 
@@ -54,6 +56,8 @@ function login() {
         success: function(result){
             // code = 0 로그인 실패 , code = 1 로그인 성공 , code = 2 error
             $('#loading').hide();
+            location.href = '/userListPage';
+
             if (result.code == 0) {
 
             } else if (result.code == 1) {
