@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{fragment/script :: scriptFragment}"></div>
-<header style="
+<div th:replace="~{fragment/css :: cssFragment}"></div>
+<div th:replace="~{fragment/scripts :: scriptFragment}"></div>
+<th:block th:fragment="headerFragment">
+  <header style="
         text-align: center;
-        margin-bottom: 5%;"
-        th:fragment="headerFragment">
-  헤더 영역
-</header>
+        margin-bottom: 5%;">
+    헤더 영역
+  </header>
+</th:block>
 </html>
