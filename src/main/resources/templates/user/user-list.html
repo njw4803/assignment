@@ -12,17 +12,24 @@
 <div class="container">
     <div class="menu-bar">
         <nav>
-            <button class="nav-button">사용자 등록</button>
             <button class="nav-button">사용자 목록</button>
+            <button class="nav-button">게시글 목록</button>
             <button class="nav-button">회원매출조회</button>
         </nav>
     </div>
     <main>
         <h2>사용자 목록</h2>
-        <p>총 4건</p>
-        <table>
+        <div class="action-bar">
+            <p><b>총 40건</b></p>
+            <div class="action-buttons">
+                <button class="register-button">등록</button>
+                <button class="delete-button">삭제</button>
+            </div>
+        </div>
+        <table class="table-container">
             <thead>
             <tr>
+                <th class="checkbox-center"><input type="checkbox"></th>
                 <th>순번</th>
                 <th>이름</th>
                 <th>전화번호</th>
@@ -34,97 +41,162 @@
             </thead>
             <tbody>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>1</td>
-                <td>홍길동</td>
+                <td>이상주</td>
                 <td>010-1234-5678</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>관리자</td>
                 <td></td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>2</td>
-                <td>김길동</td>
+                <td>이준하</td>
                 <td>010-1234-5677</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>3</td>
-                <td>이길동</td>
+                <td>장성일</td>
                 <td>010-1234-5676</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>직원</td>
                 <td></td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>4</td>
-                <td>원길동</td>
+                <td>박종훈</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>5</td>
-                <td>원길동</td>
+                <td>조현환</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>6</td>
-                <td>원길동</td>
+                <td>김형재</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>7</td>
-                <td>원길동</td>
+                <td>김승현</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>8</td>
-                <td>원길동</td>
+                <td>노지원</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>9</td>
-                <td>원길동</td>
+                <td>성준규</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
                 <td>10</td>
-                <td>원길동</td>
+                <td>홍성수</td>
                 <td>010-1234-5675</td>
-                <td>서울 동대문구 휘경동</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
+                <td>11</td>
+                <td>이재범</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
+                <td>12</td>
+                <td>남상욱</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
+                <td>13</td>
+                <td>김종식</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
+                <td>14</td>
+                <td>김은석</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center"><input type="checkbox"></td>
+                <td>15</td>
+                <td>신상재</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
                 <td>2023-01-01 14:45:30</td>
                 <td>고객</td>
                 <td>✔</td>
             </tr>
             </tbody>
         </table>
+        <div class="pagination">
+            <button class="page-button">1</button>
+            <button class="page-button">2</button>
+            <button class="page-button">3</button>
+        </div>
     </main>
 </div>
 <div th:replace="~{fragment/footer :: footerFragment}"></div>
