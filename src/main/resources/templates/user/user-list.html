@@ -9,9 +9,124 @@
 <body>
 <div th:replace="~{fragment/header :: headerFragment}"></div>
 <div th:replace="~{fragment/progress-bar :: progressBarFragment}"></div>
-<section>
-
-</section>
+<div class="container">
+    <div class="menu-bar">
+        <nav>
+            <button class="nav-button">사용자 등록</button>
+            <button class="nav-button">사용자 목록</button>
+            <button class="nav-button">회원매출조회</button>
+        </nav>
+    </div>
+    <main>
+        <h2>사용자 목록</h2>
+        <p>총 4건</p>
+        <table>
+            <thead>
+            <tr>
+                <th>순번</th>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>주소</th>
+                <th>가입일자</th>
+                <th>사용자 등급</th>
+                <th>잠김 여부</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>관리자</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김길동</td>
+                <td>010-1234-5677</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>이길동</td>
+                <td>010-1234-5676</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>직원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>원길동</td>
+                <td>010-1234-5675</td>
+                <td>서울 동대문구 휘경동</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>고객</td>
+                <td>✔</td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
 <div th:replace="~{fragment/footer :: footerFragment}"></div>
 </body>
 </html>
