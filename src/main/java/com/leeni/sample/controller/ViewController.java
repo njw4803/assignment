@@ -16,7 +16,20 @@ public class ViewController {
 
     @GetMapping("/userListPage")
     public String userListPage() {
-        log.info("/ url 호출 -> user-list.html 이동");
-        return "user/user-list";
+        log.info("/ url 호출 -> userList.html 이동");
+        return "user/userList";
     }
+
+    @GetMapping("/boardListPage")
+    public String boardListPage() {
+        log.info("/ url 호출 -> boardList.html 이동");
+        return "board/boardList";
+    }
+
+    @GetMapping("/salesInquiryPage")
+    public String salesInquiryPage() {
+        log.info("/ url 호출 -> salesInquiry.html 이동");
+        return "user/salesInquiry";
+    }
+
 }

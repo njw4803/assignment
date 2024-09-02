@@ -10,15 +10,9 @@
 <div th:replace="~{fragment/header :: headerFragment}"></div>
 <div th:replace="~{fragment/progress-bar :: progressBarFragment}"></div>
 <div class="container">
-    <div class="menu-bar">
-        <nav>
-            <button class="nav-button">사용자 목록</button>
-            <button class="nav-button">게시글 목록</button>
-            <button class="nav-button">회원매출조회</button>
-        </nav>
-    </div>
+    <div th:replace="~{fragment/menu :: menuFragment}"></div>
     <main>
-        <h2>사용자 목록</h2>
+        <h2>게시글 목록</h2>
         <div class="action-bar">
             <p><b>총 40건</b></p>
             <div class="action-buttons">
