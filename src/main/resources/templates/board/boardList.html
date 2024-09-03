@@ -5,6 +5,10 @@
     <title>과정형 평가 1번</title>
     <script th:replace="~{fragment/scripts :: scriptFragment}"></script>
     <script th:replace="~{fragment/css :: cssFragment}"></script>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/board.css}">
+    <!-- Quill CDN -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 </head>
 <body>
 <div th:replace="~{fragment/header :: headerFragment}"></div>
@@ -14,9 +18,9 @@
     <main>
         <h2>게시글 목록</h2>
         <div class="action-bar">
-            <p><b>총 40건</b></p>
+            <p><b>총 34건</b></p>
             <div class="action-buttons">
-                <button class="register-button">등록</button>
+                <button id="openModal" class="register-button">등록</button>
                 <button class="delete-button">삭제</button>
             </div>
         </div>
@@ -25,12 +29,9 @@
             <tr>
                 <th class="checkbox-center"><input type="checkbox"></th>
                 <th>순번</th>
-                <th>이름</th>
-                <th>전화번호</th>
-                <th>주소</th>
-                <th>가입일자</th>
-                <th>사용자 등급</th>
-                <th>잠김 여부</th>
+                <th>작성자</th>
+                <th>제목</th>
+                <th>작성일</th>
             </tr>
             </thead>
             <tbody>
@@ -38,121 +39,85 @@
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>1</td>
                 <td>이상주</td>
-                <td>010-1234-5678</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>관리자</td>
-                <td></td>
+                <td>게시글 테스트1</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>2</td>
                 <td>이준하</td>
-                <td>010-1234-5677</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>관리자</td>
-                <td>✔</td>
+                <td>게시글 테스트2</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>3</td>
                 <td>장성일</td>
-                <td>010-1234-5676</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>중간 관리자</td>
-                <td></td>
+                <td>게시글 테스트3</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>4</td>
                 <td>박종훈</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>중간 관리자</td>
-                <td>✔</td>
+                <td>게시글 테스트4</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>5</td>
                 <td>조현환</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트5</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>6</td>
                 <td>김형재</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트6</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>7</td>
                 <td>김승현</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트7</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>8</td>
                 <td>노지원</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트8</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>9</td>
                 <td>성준규</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트9</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>10</td>
                 <td>홍성수</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트10</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>11</td>
                 <td>이재범</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트11</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
                 <td class="checkbox-center"><input type="checkbox"></td>
                 <td>12</td>
                 <td>남상욱</td>
-                <td>010-1234-5675</td>
-                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
-                <td>2023-01-01 14:45:30</td>
-                <td>일반 사용자</td>
-                <td>✔</td>
+                <td>게시글 테스트12</td>
+                <td>2024-09-03 09:02:14</td>
             </tr>
             </tbody>
         </table>
@@ -163,32 +128,84 @@
         </div>
     </main>
 </div>
-<div class="modal">
-    <h2>사용자 수정</h2>
-    <label for="number">번호 (자동)</label>
-    <input type="text" id="number" value="100001" readonly>
 
-    <label for="userid">아이디</label>
-    <input type="text" id="userid" value="Hong">
-
-    <label for="name">이름</label>
-    <input type="text" id="name" value="홍길동">
-
-    <label for="phone">전화번호</label>
-    <input type="text" id="phone" value="01012345678">
-
-    <label for="address">주소</label>
-    <input type="text" id="address" value="서울 동대문구 휘경동 1">
-
-    <label for="grade">등급</label>
-    <input type="text" id="grade" value="A">
-
-    <div class="button-group">
-        <button class="primary">수정</button>
-        <button class="danger">삭제</button>
-        <button class="secondary">목록</button>
+<!-- 모달 영역 -->
+<div class="modal" id="myModal" display>
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h2>게시글 작성</h2>
+        <div class="form-group">
+            <label for="author">작성자</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <div class="form-group">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="content">내용</label>
+            <div id="editor-container"></div>
+        </div>
+        <div class="button-group">
+            <button class="primary">작성 완료</button>
+            <button class="secondary" id="cancelButton">취소</button>
+        </div>
     </div>
 </div>
+
 <div th:replace="~{fragment/footer :: footerFragment}"></div>
 </body>
+<script>
+    var quill = new Quill('#editor-container', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                ['bold', 'italic', 'underline'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ['link']
+            ]
+        }
+    });
+
+    // Quill 에디터 높이 조정
+    document.querySelector('.ql-editor').style.height = '200px';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const openModalButton = document.getElementById('openModal');
+        const modal = document.getElementById('myModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const cancelButton = document.getElementById('cancelButton');
+        const modalContent = document.querySelector('.modal-content');
+
+        // 모달 열기
+        openModalButton.addEventListener('click', function() {
+            modal.style.display = 'flex';
+        });
+
+        // 모달 닫기
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // 닫기 버튼 클릭 시 모달 닫기
+        closeModalButton.addEventListener('click', closeModal);
+
+        // 취소 버튼 클릭 시 모달 닫기
+        cancelButton.addEventListener('click', closeModal);
+
+        // 모달 영역 밖 클릭 시 모달 닫기 방지
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                // 영역 밖 클릭 시에는 아무 동작도 하지 않음
+            }
+        });
+
+        // 모달 내용 클릭 시 클릭 이벤트가 모달 영역으로 전파되지 않도록
+        modalContent.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+
+</script>
 </html>
