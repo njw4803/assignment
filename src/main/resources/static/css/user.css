@@ -97,6 +97,7 @@ table td:not(:nth-child(5)) {
 
 /* 주소 입력창과 검색 버튼을 같은 줄에 배치 */
 .address-top {
+    width: 108%;
     display: flex;
     gap: 10px; /* 입력창과 버튼 사이의 간격 */
 }
