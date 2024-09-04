@@ -7,8 +7,8 @@
     <script th:replace="~{fragment/css :: cssFragment}"></script>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/board.css}">
     <!-- Quill CDN -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
 </head>
 <body>
 <div th:replace="~{fragment/header :: headerFragment}"></div>
@@ -129,21 +129,20 @@
     </main>
 </div>
 
-<!-- 모달 영역 -->
+<!-- 게시글 작성,수정 모달 영역 -->
 <div class="modal" id="myModal">
     <div class="modal-content">
         <span class="close-button" id="closeModal">&times;</span>
         <h2>게시글 작성</h2>
-        <div class="form-group">
-            <label for="author">작성자</label>
-            <input type="text" id="author" name="author">
+        <div class="form-group" style="flex-direction: row;">
+            <label>작성자 </label>&nbsp;&nbsp;&nbsp;<span>이상주</span>
         </div>
         <div class="form-group">
             <label for="title">제목</label>
             <input type="text" id="title" name="title">
         </div>
         <div class="form-group">
-            <label for="content">내용</label>
+            <label>내용</label>
             <div id="editor-container"></div>
         </div>
         <div class="button-group">
@@ -153,25 +152,81 @@
     </div>
 </div>
 
+<!-- 게시글 상세조회 모달 -->
+<div class="modal" id="postDetailModal">
+    <div class="modal-content">
+        <span class="close-button" id="closeDetailModal">&times;</span>
+        <h2>게시글 상세조회</h2>
+        <div class="form-group" style="flex-direction: row;">
+            <label>작성자 </label>&nbsp;&nbsp;&nbsp;<span id="detail-author">이상주</span>
+        </div>
+        <div class="form-group">
+            <label for="detail-date">작성일</label>
+            <input type="text" id="detail-date" name="detail-date">
+        </div>
+        <div class="form-group">
+            <label for="detail-title">제목</label>
+            <input type="text" id="detail-title" name="detail-title">
+        </div>
+        <div class="form-group">
+            <label>내용</label>
+            <div id="detail-container"></div>
+        </div>
+        <div class="form-group">
+            <label>댓글 조회</label>
+            <div id="detail-comments" class="comment-section">
+                <!-- 댓글 내용이 동적으로 추가될 부분 -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label style="height: 0px;">댓글 작성</label>
+            <div class="button-group" style="justify-content: flex-start;">
+                <input type="text" id="new-comment" name="new-comment" style="width: 86%;">
+                <button class="secondary" id="addCommentButton" style="height: 10%;">작성</button>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="primary" id="detailEditButton">수정</button>
+            <button class="delete-button" id="detailDeleteButton">삭제</button>
+            <button class="secondary" id="detailCancelButton">취소</button>
+        </div>
+    </div>
+</div>
+
 <div th:replace="~{fragment/footer :: footerFragment}"></div>
 </body>
 <script>
-    var quill = new Quill('#editor-container', {
-        theme: 'snow',
-        modules: {
-            toolbar: [
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                ['link']
-            ]
-        }
-    });
-
-    // Quill 에디터 높이 조정
-    document.querySelector('.ql-editor').style.height = '200px';
-
     document.addEventListener('DOMContentLoaded', function() {
+
+        const quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link']
+                ]
+            }
+        });
+
+        const detailQuill = new Quill('#detail-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link']
+                ]
+            }
+        });
+
+
+        // Quill 에디터 높이 조정
+        document.querySelector('.ql-editor').style.height = '200px';
+        document.querySelector('#detail-container .ql-editor').style.height = '150px';
+
         const openModalButton = document.getElementById('openModal');
         const modal = document.getElementById('myModal');
         const closeModalButton = document.getElementById('closeModal');
@@ -205,7 +260,74 @@
         modalContent.addEventListener('click', function(event) {
             event.stopPropagation();
         });
+
+        /* 상세 조회 모달 */
+        const postDetailModal = document.getElementById('postDetailModal');
+        const closeDetailModalButton = document.getElementById('closeDetailModal');
+        const detailCancelButton = document.getElementById('detailCancelButton');
+        detailCancelButton.addEventListener('click', closeDetailModal);
+
+        // Close modal function
+        function closeDetailModal() {
+            postDetailModal.style.display = 'none';
+        }
+
+        // Attach close modal event
+        closeDetailModalButton.addEventListener('click', closeDetailModal);
+
+        // Function to open the post detail modal
+        function openPostDetailModal(postData) {
+            postDetailModal.style.display = 'flex';
+
+            document.getElementById('detail-title').value = postData.title;
+            document.getElementById('detail-author').innerText = postData.author;
+            document.getElementById('detail-date').value = postData.date;
+            detailQuill.root.innerHTML = postData.content;
+
+            // Clear existing comments
+            const commentSection = document.getElementById('detail-comments');
+            commentSection.innerHTML = '';
+
+            // Populate comments
+            postData.comments.forEach(comment => {
+                const commentElement = document.createElement('p');
+                commentElement.textContent = `${comment.author} / ${comment.content} / ${comment.date}`;
+                const deleteCommentButton = document.createElement('span');
+                deleteCommentButton.className = 'delete-comment';
+                deleteCommentButton.textContent = '삭제';
+                deleteCommentButton.addEventListener('click', function() {
+                    // Handle comment deletion here
+                    alert('삭제 버튼 클릭');
+                });
+                commentElement.appendChild(deleteCommentButton);
+                commentSection.appendChild(commentElement);
+            });
+
+        }
+
+        const tableRows = document.querySelectorAll('table tbody tr');
+
+
+        // Loop through each row and attach a click event listener
+        tableRows.forEach(function(row) {
+            row.addEventListener('click', function boardDetail() {
+                // For testing: Open the modal with some sample data
+                openPostDetailModal({
+                    title: row.children[3].innerText,
+                    author: row.children[2].innerText,
+                    date: row.children[4].innerText,
+                    content: row.children[2].innerText + ' ' + row.children[3].innerText,
+                    comments: [
+                        {author: '이준하', content: '댓글 내용1', date: '2023-09-01 12:34:56'},
+                        {author: '박종훈', content: '댓글 내용2', date: '2023-08-30 12:34:56'}
+                    ]
+                });
+            });
+        });
+
+
     });
+
 
 </script>
 </html>

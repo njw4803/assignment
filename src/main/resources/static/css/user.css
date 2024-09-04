@@ -83,6 +83,10 @@ table td:not(:nth-child(5)) {
     border-radius: 5px;
     font-size: 0.9rem;
 }
+.modal-content input[type="text"]:focus {
+    border-color: #4a69a4;
+    outline: none;
+}
 
 /* 주소 입력창과 검색 버튼을 같은 줄에 배치 */
 .address-group {
@@ -106,6 +110,12 @@ table td:not(:nth-child(5)) {
     font-size: 0.9rem;
     box-sizing: border-box; /* padding을 포함한 전체 너비 계산 */
 }
+
+.address-group input[type="text"]:focus {
+    border-color: #4a69a4;
+    outline: none;
+}
+
 
 /* 검색 버튼 스타일 */
 .search-button {

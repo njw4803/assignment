@@ -5,6 +5,7 @@
   <title>과정형 평가 1번</title>
   <script th:replace="~{fragment/scripts :: scriptFragment}"></script>
   <script th:replace="~{fragment/css :: cssFragment}"></script>
+  <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/salesInquiry.css}">
 </head>
 <body>
 <div th:replace="~{fragment/header :: headerFragment}"></div>
@@ -22,10 +23,10 @@
     <table class="table-container">
       <thead>
       <tr>
-        <th>순번</th>
-        <th>이름</th>
-        <th>사용자 등급</th>
-        <th>총 매출</th>
+        <th style="width: 5%;">순번</th>
+        <th style="width: 30%;">이름</th>
+        <th style="width: 35%;">사용자 등급</th>
+        <th style="width: 30%;">총 매출</th>
       </tr>
       </thead>
       <tbody>

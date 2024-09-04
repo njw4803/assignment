@@ -1,0 +1,4 @@
+/* 테이블 내 모든 셀을 가운데 정렬 */
+table td {
+    text-align: center;
+}
