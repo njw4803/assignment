@@ -172,6 +172,16 @@ textarea:focus {
     margin-left: 10px;
 }
 
+#detail-comments span.update-comment {
+    color: #4a69a4;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 #detail-comments span.delete-comment:hover {
+    text-decoration: underline;
+}
+
+#detail-comments span.update-comment:hover {
     text-decoration: underline;
 }
