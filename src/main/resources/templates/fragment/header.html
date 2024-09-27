@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{fragment/css :: cssFragment}"></div>
-<div th:replace="~{fragment/scripts :: scriptFragment}"></div>
 <th:block th:fragment="headerFragment">
   <header>
     <h1>쇼핑몰 회원관리</h1>
     <div class="user-info">
-      <span>이상주님 환영합니다!</span>
-      <button class="logout-button">로그아웃</button>
+      <span>이상주님</span>
+      <img th:src="@{/image/profile.png}" class="profile-pic" alt="Profile Picture" id="profile-pic"/>
+      <div class="dropdown-menu" id="dropdown-menu">
+        <ul>
+          <li><a href="#" id="view-profile">프로필 보기</a></li>
+          <li><a href="#">정보 수정</a></li>
+          <li><a href="#">로그아웃</a></li>
+        </ul>
+      </div>
     </div>
   </header>
+
+  <!-- Modal for Profile Preview -->
+  <div id="profile-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <img th:src="@{/image/profile.png}" class="profile-pic-large" id="profile-pic-large" alt="Profile Picture"/>
+      <input type="file" id="file-input" style="display: none;" accept="image/*" />
+      <button id="change-profile-button">변경</button>
+      <button id="remove-profile-button">제거</button>
+    </div>
+  </div>
 </th:block>
 </html>

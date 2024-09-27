@@ -36,84 +36,84 @@
             </thead>
             <tbody>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>1</td>
                 <td>이상주</td>
                 <td>게시글 테스트1</td>
                 <td>2024-09-04 11:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>2</td>
                 <td>이준하</td>
                 <td>게시글 테스트2</td>
                 <td>2024-09-04 09:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>3</td>
                 <td>장성일</td>
                 <td>게시글 테스트3</td>
                 <td>2024-09-03 11:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>4</td>
                 <td>박종훈</td>
                 <td>게시글 테스트4</td>
                 <td>2024-09-03 10:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>5</td>
                 <td>조현환</td>
                 <td>게시글 테스트5</td>
                 <td>2024-09-03 09:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>6</td>
                 <td>김형재</td>
                 <td>게시글 테스트6</td>
                 <td>2024-09-02 11:42:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>7</td>
                 <td>김승현</td>
                 <td>게시글 테스트7</td>
                 <td>2024-09-02 11:32:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>8</td>
                 <td>노지원</td>
                 <td>게시글 테스트8</td>
                 <td>2024-09-02 11:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>9</td>
                 <td>성준규</td>
                 <td>게시글 테스트9</td>
                 <td>2024-09-02 09:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>10</td>
                 <td>홍성수</td>
                 <td>게시글 테스트10</td>
                 <td>2024-09-01 11:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>11</td>
                 <td>이재범</td>
                 <td>게시글 테스트11</td>
                 <td>2024-09-01 10:02:14</td>
             </tr>
             <tr>
-                <td class="checkbox-center"><input type="checkbox"></td>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>12</td>
                 <td>남상욱</td>
                 <td>게시글 테스트12</td>
@@ -145,10 +145,16 @@
             <label>내용</label>
             <div id="editor-container"></div>
         </div>
+        <div class="form-group" style="flex-direction: row; align-items: center;">
+            <input type="file" id="file-upload-input" style="display: none;" accept="image/*" />
+            <button id="file-upload-button">파일 업로드</button>
+            <span id="file-name">d</span><span class="file-remove-button" id="x-button">×</span>
+        </div>
         <div class="button-group">
             <button class="primary">작성 완료</button>
             <button class="secondary" id="cancelButton">취소</button>
         </div>
+
     </div>
 </div>
 
@@ -157,6 +163,11 @@
     <div class="modal-content">
         <span class="close-button" id="closeDetailModal">&times;</span>
         <h2>게시글 상세조회</h2>
+        <div class="form-group">
+            <div class="modal-user-info">
+                <img th:src="@{/image/profile.png}" class="modal-profile-pic" alt="Profile Picture" id="modal-profile-pic"/>
+            </div>
+        </div>
         <div class="form-group" style="flex-direction: row;">
             <label>작성자 </label>&nbsp;&nbsp;&nbsp;<span id="detail-author">이상주</span>
         </div>
@@ -170,6 +181,15 @@
         <div class="form-group">
             <label>내용</label>
             <div id="detail-container"></div>
+        </div>
+        <div class="form-group">
+            <label>첨부파일</label>
+            <div id="detail-modal-file-name">KakaoTalk_20240318_212500450.png</div>
+        </div>
+        <div class="form-group" style="flex-direction: row; align-items: center; display: none;">
+            <input type="file" id="modal-file-upload-input" style="display: none;" accept="image/*" />
+            <button id="modal-file-upload-button">파일 업로드</button>
+            <span id="modal-file-name">d</span><span class="file-remove-button" id="modal-x-button">×</span>
         </div>
         <div class="form-group">
             <label>댓글 조회</label>
@@ -187,7 +207,7 @@
         <div class="button-group">
             <button class="primary" id="detailEditButton">수정</button>
             <button class="delete-button" id="detailDeleteButton">삭제</button>
-            <button class="secondary" id="detailCancelButton">취소</button>
+            <!--<button class="secondary" id="detailCancelButton">취소</button>-->
         </div>
     </div>
 </div>
@@ -279,8 +299,8 @@
         /* 상세 조회 모달 */
         const postDetailModal = document.getElementById('postDetailModal');
         const closeDetailModalButton = document.getElementById('closeDetailModal');
-        const detailCancelButton = document.getElementById('detailCancelButton');
-        detailCancelButton.addEventListener('click', closeDetailModal);
+        //const detailCancelButton = document.getElementById('detailCancelButton');
+        //detailCancelButton.addEventListener('click', closeDetailModal);
 
         // Close modal function
         function closeDetailModal() {
@@ -302,10 +322,16 @@
             // Clear existing comments
             const commentSection = document.getElementById('detail-comments');
             commentSection.innerHTML = '';
+            let index = 1;
 
             // Populate comments
             postData.comments.forEach(comment => {
+                const divElement = document.createElement('div');
+                divElement.classList.add('comment-row');
                 const commentElement = document.createElement('p');
+                const imgElement = document.createElement('img');
+                imgElement.classList.add('profile-pic');
+                imgElement.setAttribute('src', '/image/profile' + index++ + '.png');
                 commentElement.textContent = `${comment.author} / ${comment.content} / ${comment.date}`;
                 const deleteCommentButton = document.createElement('span');
                 const updateCommentButton = document.createElement('span');
@@ -327,7 +353,9 @@
                 });
 
                 commentElement.appendChild(updateCommentButton);
-                commentSection.appendChild(commentElement);
+                divElement.appendChild(imgElement);
+                divElement.appendChild(commentElement);
+                commentSection.appendChild(divElement);
             });
 
         }
@@ -398,6 +426,60 @@
             });
         });
 
+
+        $(function(){
+
+            const fileUploadButton = document.getElementById('file-upload-button');
+            const fileUploadInput = document.getElementById('file-upload-input');
+            const xButton = document.getElementById('x-button');
+
+            const modalFileUploadButton = document.getElementById('modal-file-upload-button');
+            const modalFileUploadInput = document.getElementById('modal-file-upload-input');
+            const modalXButton = document.getElementById('modal-x-button');
+
+            fileUploadButton.addEventListener('click', function() {
+                fileUploadInput.click();  // 파일 선택 창 열기
+            });
+
+            modalFileUploadButton.addEventListener('click', function() {
+                modalFileUploadInput.click();  // 파일 선택 창 열기
+            });
+
+            fileUploadInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('file-name').innerText = file.name;
+                        document.getElementById('x-button').innerText = 'x';
+                    };
+                    reader.readAsDataURL(file);  // 선택한 파일 읽기
+                }
+            });
+
+            modalFileUploadInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('modal-file-name').innerText = file.name;
+                        document.getElementById('modal-x-button').innerText = 'x';
+                    };
+                    reader.readAsDataURL(file);  // 선택한 파일 읽기
+                }
+            });
+
+            xButton.addEventListener('click', function() {
+                document.getElementById('file-name').innerText = '';
+                document.getElementById('x-button').innerText = '';
+            });
+
+            modalXButton.addEventListener('click', function() {
+                document.getElementById('modal-file-name').innerText = '';
+                document.getElementById('modal-x-button').innerText = '';
+            });
+
+        });
 
     });
 
