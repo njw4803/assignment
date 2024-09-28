@@ -51,12 +51,11 @@ table td:not(:nth-child(4)) {
 /* 파일 x 버튼 스타일 */
 .file-remove-button {
     color: #aaa;
-    float: right;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s;
-    margin-left: 3px;
+    margin-left: 5px;
 }
 
 .file-remove-button:hover,

@@ -19,6 +19,21 @@
         <h2>게시글 목록</h2>
         <div class="action-bar">
             <p><b>총 34건</b></p>
+            <div class="search-bar">
+                <select class="search-select" id="searchSelect" onchange="boardToggleInputs()">
+                    <option value="아이디">아이디</option>
+                    <option value="작성자">작성자</option>
+                    <option value="제목">제목</option>
+                    <option value="작성일">작성일</option>
+                </select>
+                <input type="text" id="searchInputs" class="search-input" placeholder="검색어를 입력하세요">
+                <div id="dateInputs" style="display: none;">
+                    <input type="date" class="date-input" placeholder="시작 날짜">
+                    <span class="date-separator">~</span>
+                    <input type="date" class="date-input" placeholder="끝 날짜">
+                </div>
+                <button class="list-search-button">검색</button>
+            </div>
             <div class="action-buttons">
                 <button id="openModal" class="register-button">등록</button>
                 <button class="delete-button">삭제</button>
@@ -29,6 +44,7 @@
             <tr>
                 <th class="checkbox-center"><input type="checkbox"></th>
                 <th>순번</th>
+                <th>아이디</th>
                 <th>작성자</th>
                 <th>제목</th>
                 <th>작성일</th>
@@ -38,6 +54,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>1</td>
+                <td>admin1</td>
                 <td>이상주</td>
                 <td>게시글 테스트1</td>
                 <td>2024-09-04 11:02:14</td>
@@ -45,6 +62,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>2</td>
+                <td>admin2</td>
                 <td>이준하</td>
                 <td>게시글 테스트2</td>
                 <td>2024-09-04 09:02:14</td>
@@ -52,6 +70,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>3</td>
+                <td>admin3</td>
                 <td>장성일</td>
                 <td>게시글 테스트3</td>
                 <td>2024-09-03 11:02:14</td>
@@ -59,6 +78,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>4</td>
+                <td>admin4</td>
                 <td>박종훈</td>
                 <td>게시글 테스트4</td>
                 <td>2024-09-03 10:02:14</td>
@@ -66,6 +86,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>5</td>
+                <td>admin5</td>
                 <td>조현환</td>
                 <td>게시글 테스트5</td>
                 <td>2024-09-03 09:02:14</td>
@@ -73,6 +94,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>6</td>
+                <td>admin6</td>
                 <td>김형재</td>
                 <td>게시글 테스트6</td>
                 <td>2024-09-02 11:42:14</td>
@@ -80,6 +102,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>7</td>
+                <td>admin7</td>
                 <td>김승현</td>
                 <td>게시글 테스트7</td>
                 <td>2024-09-02 11:32:14</td>
@@ -87,6 +110,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>8</td>
+                <td>admin8</td>
                 <td>노지원</td>
                 <td>게시글 테스트8</td>
                 <td>2024-09-02 11:02:14</td>
@@ -94,6 +118,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>9</td>
+                <td>admin9</td>
                 <td>성준규</td>
                 <td>게시글 테스트9</td>
                 <td>2024-09-02 09:02:14</td>
@@ -101,6 +126,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>10</td>
+                <td>admin10</td>
                 <td>홍성수</td>
                 <td>게시글 테스트10</td>
                 <td>2024-09-01 11:02:14</td>
@@ -108,6 +134,7 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>11</td>
+                <td>admin11</td>
                 <td>이재범</td>
                 <td>게시글 테스트11</td>
                 <td>2024-09-01 10:02:14</td>
@@ -115,8 +142,17 @@
             <tr>
                 <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
                 <td>12</td>
+                <td>admin12</td>
                 <td>남상욱</td>
                 <td>게시글 테스트12</td>
+                <td>2024-09-01 09:02:14</td>
+            </tr>
+            <tr>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
+                <td>13</td>
+                <td>admin13</td>
+                <td>김소영</td>
+                <td>게시글 테스트13</td>
                 <td>2024-09-01 09:02:14</td>
             </tr>
             </tbody>
@@ -146,9 +182,11 @@
             <div id="editor-container"></div>
         </div>
         <div class="form-group" style="flex-direction: row; align-items: center;">
-            <input type="file" id="file-upload-input" style="display: none;" accept="image/*" />
+            <input type="file" id="file-upload-input" style="display: none;" accept="image/*" multiple="multiple"/>
             <button id="file-upload-button">파일 업로드</button>
-            <span id="file-name">d</span><span class="file-remove-button" id="x-button">×</span>
+        </div>
+        <div class="form-group" id="multiFiles" style="flex-direction: column;">
+
         </div>
         <div class="button-group">
             <button class="primary">작성 완료</button>
@@ -162,7 +200,7 @@
 <div class="modal" id="postDetailModal">
     <div class="modal-content">
         <span class="close-button" id="closeDetailModal">&times;</span>
-        <h2>게시글 상세조회</h2>
+        <h2 id="boardId"></h2>
         <div class="form-group">
             <div class="modal-user-info">
                 <img th:src="@{/image/profile.png}" class="modal-profile-pic" alt="Profile Picture" id="modal-profile-pic"/>
@@ -184,10 +222,12 @@
         </div>
         <div class="form-group">
             <label>첨부파일</label>
-            <div id="detail-modal-file-name">KakaoTalk_20240318_212500450.png</div>
+            <div id="detail-modal-file-name">20240928_212500450.png</div>
+            <div id="detail-modal-file-name2">20240928_164325261.jpg</div>
+            <div id="detail-modal-file-name3">20240928_133432331.jpg</div>
         </div>
         <div class="form-group" style="flex-direction: row; align-items: center; display: none;">
-            <input type="file" id="modal-file-upload-input" style="display: none;" accept="image/*" />
+            <input type="file" id="modal-file-upload-input" style="display: none;" accept="image/*"/>
             <button id="modal-file-upload-button">파일 업로드</button>
             <span id="modal-file-name">d</span><span class="file-remove-button" id="modal-x-button">×</span>
         </div>
@@ -314,6 +354,7 @@
         function openPostDetailModal(postData) {
             postDetailModal.style.display = 'flex';
 
+            document.getElementById('boardId').innerText = postData.id + '님의 게시글';
             document.getElementById('detail-title').value = postData.title;
             document.getElementById('detail-author').innerText = postData.author;
             document.getElementById('detail-date').innerText = postData.date;
@@ -414,10 +455,11 @@
             row.addEventListener('click', function boardDetail() {
                 // For testing: Open the modal with some sample data
                 openPostDetailModal({
-                    title: row.children[3].innerText,
-                    author: row.children[2].innerText,
-                    date: row.children[4].innerText,
-                    content: row.children[2].innerText + ' ' + row.children[3].innerText,
+                    id: row.children[2].innerText,
+                    title: row.children[4].innerText,
+                    author: row.children[3].innerText,
+                    date: row.children[5].innerText,
+                    content: row.children[3].innerText + ' ' + row.children[4].innerText,
                     comments: [
                         {author: '이준하', content: '댓글 내용1', date: '2023-09-01 12:34:56'},
                         {author: '박종훈', content: '댓글 내용2', date: '2023-08-30 12:34:56'}
@@ -446,15 +488,32 @@
             });
 
             fileUploadInput.addEventListener('change', function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('file-name').innerText = file.name;
-                        document.getElementById('x-button').innerText = 'x';
-                    };
-                    reader.readAsDataURL(file);  // 선택한 파일 읽기
+                const files = event.target.files;
+                const multiFiles = document.getElementById('multiFiles');
+                multiFiles.innerHTML = '';
+                for (const file of files) {
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            let $divNode = document.createElement('div');
+                            let $spanNode = document.createElement('span');
+                            let $spanBtnNode = document.createElement('span');
+                            $divNode.id = 'file-name' + file.name
+                            $spanNode.innerText = file.name;
+                            $spanBtnNode.classList.add('file-remove-button');
+                            $spanBtnNode.innerText = 'x';
+                            $spanBtnNode.onclick = function xButtonDelete() {
+                                document.getElementById('file-name' + file.name).remove();
+                            }
+
+                            $divNode.appendChild($spanNode);
+                            $divNode.appendChild($spanBtnNode);
+                            multiFiles.appendChild($divNode);
+                        };
+                        reader.readAsDataURL(file);  // 선택한 파일 읽기
+                    }
                 }
+
             });
 
             modalFileUploadInput.addEventListener('change', function(event) {
@@ -469,11 +528,6 @@
                 }
             });
 
-            xButton.addEventListener('click', function() {
-                document.getElementById('file-name').innerText = '';
-                document.getElementById('x-button').innerText = '';
-            });
-
             modalXButton.addEventListener('click', function() {
                 document.getElementById('modal-file-name').innerText = '';
                 document.getElementById('modal-x-button').innerText = '';
@@ -483,6 +537,18 @@
 
     });
 
+    function boardToggleInputs() {
+        const searchSelect = document.getElementById('searchSelect');
+        const searchInputs = document.getElementById('searchInputs');
+        const dateInputs = document.getElementById('dateInputs');
 
+        if (searchSelect.value === '작성일') {
+            searchInputs.style.display = 'none'; // 검색어 입력 숨기기
+            dateInputs.style.display = 'flex'; // 날짜 입력 보이기
+        }  else {
+            searchInputs.style.display = 'flex'; // 검색어 입력 보이기
+            dateInputs.style.display = 'none'; // 날짜 입력 숨기기
+        }
+    }
 </script>
 </html>

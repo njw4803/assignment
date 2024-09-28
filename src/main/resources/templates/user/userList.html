@@ -16,6 +16,30 @@
         <h2>사용자 목록</h2>
         <div class="action-bar">
             <p><b>총 40건</b></p>
+            <div class="search-bar">
+                <select class="search-select" id="searchSelect" onchange="toggleInputs()">
+                    <option value="아이디">아이디</option>
+                    <option value="이름">이름</option>
+                    <option value="전화번호">전화번호</option>
+                    <option value="주소">주소</option>
+                    <option value="가입일자">가입일자</option>
+                    <option value="사용자 등급">사용자 등급</option>
+                </select>
+                <input type="text" id="searchInputs" class="search-input" placeholder="검색어를 입력하세요">
+                <div id="dateInputs" style="display: none;">
+                    <input type="date" class="date-input" placeholder="시작 날짜">
+                    <span class="date-separator">~</span>
+                    <input type="date" class="date-input" placeholder="끝 날짜">
+                </div>
+                <div id="gradeInputs" style="display: none;">
+                    <select class="grade-select">
+                        <option value="일반 사용자">일반 사용자</option>
+                        <option value="중간 관리자">중간 관리자</option>
+                        <option value="관리자">관리자</option>
+                    </select>
+                </div>
+                <button class="list-search-button">검색</button>
+            </div>
             <div class="action-buttons">
                 <button class="register-button">등록</button>
                 <button class="delete-button">삭제</button>
@@ -167,6 +191,17 @@
                 <td>2023-01-01 14:45:30</td>
                 <td>일반 사용자</td>
                 <td><lock>✔</lock></td>
+            </tr>
+            <tr>
+                <td class="checkbox-center" onclick="event.cancelBubble=true"><input type="checkbox"></td>
+                <td>13</td>
+                <td>admin13</td>
+                <td>김소영</td>
+                <td>010-1234-5675</td>
+                <td>서울 영등포구 영등포로 33 목동비즈타워 608호</td>
+                <td>2023-01-01 14:45:30</td>
+                <td>일반 사용자</td>
+                <td><lock></lock></td>
             </tr>
             </tbody>
         </table>
@@ -361,6 +396,27 @@
 
 
     });
+
+    function toggleInputs() {
+        const searchSelect = document.getElementById('searchSelect');
+        const searchInputs = document.getElementById('searchInputs');
+        const dateInputs = document.getElementById('dateInputs');
+        const gradeInputs = document.getElementById('gradeInputs');
+
+        if (searchSelect.value === '가입일자') {
+            searchInputs.style.display = 'none'; // 검색어 입력 숨기기
+            dateInputs.style.display = 'flex'; // 날짜 입력 보이기
+            gradeInputs.style.display = 'none'; // 등급 입력 숨기기
+        } else if (searchSelect.value === '사용자 등급') {
+            searchInputs.style.display = 'none'; // 검색어 입력 숨기기
+            dateInputs.style.display = 'none'; // 날짜 입력 숨기기
+            gradeInputs.style.display = 'flex'; // 등급 입력 보이기
+        } else {
+            searchInputs.style.display = 'flex'; // 검색어 입력 보이기
+            dateInputs.style.display = 'none'; // 날짜 입력 숨기기
+            gradeInputs.style.display = 'none'; // 등급 입력 숨기기
+        }
+    }
 
 </script>
 </body>

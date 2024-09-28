@@ -281,3 +281,64 @@ table tbody tr:hover {
 .checkbox-center {
     text-align: center;
 }
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 요소 간 간격 */
+}
+
+.search-select, .search-input, .list-search-button {
+    padding: 8px 12px; /* 기본 패딩 */
+    border-radius: 5px;
+    border: 1px solid #4a69a4; /* 경계선 스타일 */
+}
+
+.search-select {
+    flex: 1; /* 선택 박스가 가용 공간을 차지 */
+}
+
+.search-input {
+    flex: 2; /* 입력 박스가 선택 박스보다 더 넓음 */
+    padding-right: 140px;
+}
+
+.list-search-button {
+    background-color: #4a69a4;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* 등록 버튼과 동일한 패딩 */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list-search-button:hover {
+    background-color: #5b7fbf;
+}
+
+.search-input:focus {
+    border-color: #4a69a4;
+    outline: none;
+}
+
+.date-input {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 0 5px; /* 날짜 입력 사이 여백 추가 */
+}
+
+.date-separator {
+    margin: 0 10px; /* ~ 기호 양옆 여백 추가 */
+    font-weight: bold;
+    font-size: 1.2em; /* 크기 조정 */
+    align-content: center;
+}
+
+.grade-select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-left: 5px; /* 여백 추가 */
+    margin-right: 5px;
+}
