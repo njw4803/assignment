@@ -324,7 +324,7 @@ table tbody tr:hover {
 .date-input {
     padding: 8px 12px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #4a69a4;
     margin: 0 5px; /* 날짜 입력 사이 여백 추가 */
 }
 
@@ -338,7 +338,7 @@ table tbody tr:hover {
 .grade-select {
     padding: 8px 12px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #4a69a4;
     margin-left: 5px; /* 여백 추가 */
     margin-right: 5px;
 }
