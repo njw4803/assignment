@@ -144,6 +144,16 @@ table td:not(:nth-child(5)) {
     box-sizing: border-box; /* padding을 포함한 전체 너비 계산 */
 }
 
+/* 추가 정보 입력창 스타일 */
+#detail-info {
+    width: 109%; /* 부모 요소의 전체 너비 사용 */
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* padding을 포함한 전체 너비 계산 */
+}
+
 .search-button:hover {
     background-color: #3d568a !important;
 }
