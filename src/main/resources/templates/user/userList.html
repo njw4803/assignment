@@ -224,7 +224,7 @@
                 <div class="dropdown-menu" id="modal-dropdown-menu">
                     <ul>
                         <li><a href="#" id="profile-button">프로필 업로드</a></li>
-                        <li><a href="#">제거</a></li>
+                        <li><a href="#" onclick="document.getElementById('modal-profile-pic').src = '/image/default.png';">제거</a></li>
                     </ul>
                 </div>
             </div>
@@ -315,6 +315,13 @@
                 document.getElementById("modalDeleteButton").style.display = "";
                 document.getElementById("modalCancelButton").style.display = "none";
 
+                if (postData.userId === 'admin') {
+                    document.getElementById('modal-profile-pic').src = '/image/profile1.png';
+                } else if (postData.userId === 'user29') {
+                    document.getElementById('modal-profile-pic').src = '/image/profile2.png';
+                } else {
+                    document.getElementById('modal-profile-pic').src = '/image/default.png';
+                }
                 document.getElementById('username').value = postData.username;
                 document.getElementById('phone').value = postData.phone;
                 document.getElementById('address').value = postData.additionalInfo;

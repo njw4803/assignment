@@ -23,7 +23,7 @@
       <img th:src="@{/image/profile.png}" class="profile-pic-large" id="profile-pic-large" alt="Profile Picture"/>
       <input type="file" id="file-input" style="display: none;" accept="image/*" />
       <button id="change-profile-button">변경</button>
-      <button id="remove-profile-button">제거</button>
+      <button id="remove-profile-button" onclick="document.getElementById('profile-pic-large').src = '/image/default.png';">제거</button>
     </div>
   </div>
 </th:block>

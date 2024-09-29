@@ -355,12 +355,19 @@
             document.getElementById('detail-title').value = postData.title;
             document.getElementById('detail-author').innerText = postData.author;
             document.getElementById('detail-date').innerText = postData.date;
+            if (postData.id === 'admin') {
+                document.getElementById('modal-profile-pic').src = '/image/profile1.png';
+            } else if (postData.id === 'user29') {
+                document.getElementById('modal-profile-pic').src = '/image/profile2.png';
+            } else {
+                document.getElementById('modal-profile-pic').src = '/image/default.png';
+            }
+
             detailQuill.root.innerHTML = postData.content;
 
             // Clear existing comments
             const commentSection = document.getElementById('detail-comments');
             commentSection.innerHTML = '';
-            let index = 1;
 
             // Populate comments
             postData.comments.forEach(comment => {
@@ -369,7 +376,11 @@
                 const commentElement = document.createElement('p');
                 const imgElement = document.createElement('img');
                 imgElement.classList.add('profile-pic');
-                imgElement.setAttribute('src', '/image/profile' + index++ + '.png');
+                if (`${comment.author}` === '이준하') {
+                    imgElement.setAttribute('src', '/image/profile2.png');
+                } else {
+                    imgElement.setAttribute('src', '/image/default.png');
+                }
                 commentElement.textContent = `${comment.author} / ${comment.content} / ${comment.date}`;
                 const deleteCommentButton = document.createElement('span');
                 const updateCommentButton = document.createElement('span');
