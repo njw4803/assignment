@@ -219,6 +219,21 @@ textarea:focus {
     background-color: #c58f8f;
 }
 
+#modal-file-upload-button {
+    padding: 5px 10px;
+    color: white;
+    font-size: 14px;
+    border: 1px solid #888;
+    background-color: #946868;
+    cursor: pointer;
+    width: 25%;
+    margin-right: 10px;
+}
+
+#modal-file-upload-button:hover {
+    background-color: #c58f8f;
+}
+
 .comment-row {
     display: flex;
     align-items: center; /* 이미지와 텍스트를 수직 가운데 정렬 */
