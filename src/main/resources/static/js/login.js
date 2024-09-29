@@ -1,8 +1,13 @@
 $(function(){
     $("#userId").keydown(function (key) {
         if (key.keyCode == 13) {
-            $("#password").focus();
-            return false;
+            let password = $('#password').val();
+            if (password === '') {
+                $("#password").focus();
+                return;
+            }
+            loginCheck();
+            return;
         }
     });
 
@@ -16,25 +21,16 @@ $(function(){
 
 function loginCheck() {
 
-    login(); return;
-    var userId = $('#userId').val();
-    var password = $('#password').val();
+    let userId = $('#userId').val();
+    let password = $('#password').val();
 
-    if (userId == '') {
-        var type = 'warning';
-        var title_msg = "아이디를 입력해주세요.";
-        var msg;
-        var id = 'userId';
-        sweetAlert(type, title_msg, msg, id); //common.js에 있음
-        return false;
+    if (userId === '') {
+        document.getElementById('error').innerText = '아이디를 입력해주세요.';
+        return;
     }
-    if (password == '') {
-        var type = 'warning';
-        var title_msg = "비밀번호를 입력해주세요.";
-        var msg;
-        var id = 'password';
-        sweetAlert(type, title_msg, msg, id); //common.js에 있음
-        return false;
+    if (password === '') {
+        document.getElementById('error').innerText = '비밀번호를 입력해주세요.';
+        return;
     }
 
     login();
