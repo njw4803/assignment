@@ -235,6 +235,16 @@
             <input type="text" id="user-id">
         </div>
 
+        <div class="form-group" id="password-form">
+            <label for="user-password">비밀번호</label>
+            <input type="password" id="user-password">
+        </div>
+
+        <div class="form-group" id="verify-password-form">
+            <label for="user-verify-password">비밀번호 확인</label>
+            <input type="password" id="user-verify-password">
+        </div>
+
         <div class="form-group">
             <label for="username">이름</label>
             <input type="text" id="username">
@@ -310,6 +320,8 @@
 
             if (postData.username) {
                 document.getElementById("id-form").style.display = "none";
+                document.getElementById("password-form").style.display = "none";
+                document.getElementById("verify-password-form").style.display = "none";
                 document.getElementById("modal-title").innerText = postData.userId;
                 document.getElementById("modalButton").innerText = '수정';
                 document.getElementById("modalDeleteButton").style.display = "";
@@ -333,6 +345,11 @@
 
             document.getElementById("modal-title").innerText = "사용자 등록";
             document.getElementById("id-form").style.display = "";
+            document.getElementById("password-form").style.display = "";
+            document.getElementById("verify-password-form").style.display = "";
+            document.getElementById("user-id").value = "";
+            document.getElementById("user-password").value = "";
+            document.getElementById("user-verify-password").value = "";
             document.getElementById("modalButton").innerText = '등록';
             document.getElementById("modalDeleteButton").style.display = "none";
             document.getElementById("modalCancelButton").style.display = "";

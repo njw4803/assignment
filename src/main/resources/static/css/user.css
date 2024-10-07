@@ -76,6 +76,7 @@ table td:not(:nth-child(5)) {
 
 /* 인풋, 셀렉트박스 스타일 */
 .modal-content input[type="text"],
+.modal-content input[type="password"],
 .modal-content select {
     width: 65%;
     padding: 8px 10px;
@@ -83,7 +84,8 @@ table td:not(:nth-child(5)) {
     border-radius: 5px;
     font-size: 0.9rem;
 }
-.modal-content input[type="text"]:focus {
+.modal-content input[type="text"]:focus,
+.modal-content input[type="password"]:focus {
     border-color: #2c3343;
     outline: none;
 }
