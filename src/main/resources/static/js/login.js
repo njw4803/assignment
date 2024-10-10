@@ -14,7 +14,7 @@ $(function(){
     $("#password").keydown(function (key) {
         if (key.keyCode == 13) {
             loginCheck();
-            return false;
+            return;
         }
     });
 });
@@ -47,21 +47,15 @@ function login() {
         data : $("#formData").serialize(),
         url: '/login',
         dataType: "json",
-        error: function(result){
+        error: function(result) {
 
         },
-        success: function(result){
-            // code = 0 로그인 실패 , code = 1 로그인 성공 , code = 2 error
-            $('#loading').hide();
+        success: function(result) {
             location.href = '/userListPage';
 
-            if (result.code == 0) {
-
-            } else if (result.code == 1) {
-
-            } else if (result.code == 2) {
-
-            }
+        },
+        complete: function () {
+            $('#loading').hide();
         }
     });
 }
