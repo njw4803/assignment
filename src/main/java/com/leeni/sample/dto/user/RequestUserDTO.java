@@ -1,10 +1,7 @@
 package com.leeni.sample.dto.user;
 
 import com.leeni.sample.dto.CommonRequestDTO;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
@@ -23,4 +20,5 @@ public class RequestUserDTO extends CommonRequestDTO {
     private Byte profileImage;
     private String authority;
     private String locked;
+
 }
