@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @ToString(callSuper = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class ResponseUserDTO extends CommonResponseDTO {
     private int idx;

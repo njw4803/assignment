@@ -47,7 +47,7 @@ function login() {
             password: $('#password').val()
         }),
         url: '/login',
-        contentType: "application/json",
+        // contentType: "application/json",
         error: function(result) {
 
         },
